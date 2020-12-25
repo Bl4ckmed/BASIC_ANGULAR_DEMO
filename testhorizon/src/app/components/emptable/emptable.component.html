@@ -1,0 +1,24 @@
+<html>
+<head>
+
+</head>
+<body>
+
+<table id="customers">
+  <tr>
+    <th>ID</th>
+    <th>EMPLOYEE_NAME</th>
+    <th>EMPLOYEE_SALARY</th>
+    <th>EMPLOYEE AGE</th>
+
+  </tr>
+  <tr *ngFor="let employe of table">
+    <td> {{employe.id}} </td>
+    <td>{{employe.employee_name}}</td>
+    <td>{{employe.employee_salary}}</td>
+    <td>{{employe.employee_age}}</td>
+  </tr>
+  </table>
+
+</body>
+</html>

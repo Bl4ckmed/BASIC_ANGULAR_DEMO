@@ -1,3 +1,4 @@
+import { EmptableComponent } from './components/emptable/emptable.component';
 import { Component } from '@angular/core';
 
 @Component({
