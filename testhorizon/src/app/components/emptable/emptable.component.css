@@ -17,6 +17,24 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #4CAF50;
+  background-color: #4952c9;
   color: white;
+
 }
+
+thead>tr>th {
+  cursor: pointer;
+}
+#searchbr
+{
+
+min-width:22%;
+height : 30px;
+top:0%;
+right:0%;
+z-index:10;
+background-color:rgb(255, 255, 255);
+border: 1px solid rgb(51, 37, 170);
+
+}
+

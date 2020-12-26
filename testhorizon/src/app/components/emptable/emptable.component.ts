@@ -40,4 +40,32 @@ export class EmptableComponent implements OnInit {
     )
   }
 
+
+  //sorting
+  key: string = 'name'; //set default
+  reverse: boolean = true;
+  sort(key){
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+
+
+  // pagination
+  p: number = 1;
+
+  ;
+  public newAttribute: any = {};
+
+    addFieldValue() {
+        this.table.push(this.newAttribute)
+        this.newAttribute = {};
+    }
+
+    deleteFieldValue(id) {
+        for(let i = 0; i < this.table.length; ++i){
+          if (this.table[i].id === id) {
+              this.table.splice(i,1);
+          }
+      }
+    }
 }

@@ -4,21 +4,49 @@
 </head>
 <body>
 
+  <nav class="navbar"  >
+    <input id ="searchbr"type="text"  [(ngModel)]="term">
+    </nav>
+
 <table id="customers">
   <tr>
-    <th>ID</th>
-    <th>EMPLOYEE_NAME</th>
+    <th (click)="sort('ID')" >ID  <span class="glyphicon sort-icon" color="white" *ngIf="key =='ID'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
+    <th (click)="sort('EMPLOYEE_NAME')">EMPLOYEE_NAME <span class="glyphicon sort-icon"  *ngIf="key =='EMPLOYEE_NAME'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
     <th>EMPLOYEE_SALARY</th>
     <th>EMPLOYEE AGE</th>
 
   </tr>
-  <tr *ngFor="let employe of table">
+  <tr *ngFor="let employe of table | orderBy: key : reverse | filter:term | paginate: { itemsPerPage: 10, currentPage: p };">
     <td> {{employe.id}} </td>
     <td>{{employe.employee_name}}</td>
     <td>{{employe.employee_salary}}</td>
     <td>{{employe.employee_age}}</td>
+    <td>
+      <button class="btn btn-default"  type="button" (click)="deleteFieldValue(employe.id)">Delete</button>
+  </td>
   </tr>
+  <tr>
+    <td>
+        <input class="form-control" type="text"  [(ngModel)]="newAttribute.id" name="newAttributeCode" />
+    </td>
+    <td>
+        <input class="form-control" type="text"  [(ngModel)]="newAttribute.employee_name" name="newAttributeName" />
+    </td>
+    <td>
+        <input class="form-control" type="text" [(ngModel)]="newAttribute.employee_salary" name="newAttributePrice" />
+    </td>
+    <td>
+      <input class="form-control" type="text"  [(ngModel)]="newAttribute.employee_age" name="newAttributePrice" />
+  </td>
+    <td>
+        <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+    </td>
+</tr>
+
   </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 </body>
 </html>
